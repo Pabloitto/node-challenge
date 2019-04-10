@@ -2,10 +2,14 @@ const express = require('express')
 
 const app = express()
 
-app.get('/', function (req, res) {
-  res.send('Welcome to the challenge')
-})
+const db = require('./src/common/db')
 
-app.listen(8089, function () {
-  console.log('Server is running on 8089!')
+db.setup().sync().done(() => {
+  app.get('/', function (req, res) {
+    res.send('Welcome to the challenge')
+  })
+
+  app.listen(8089, function () {
+    console.log('Server is running on 8089!')
+  })
 })

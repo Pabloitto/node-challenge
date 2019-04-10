@@ -1,11 +1,6 @@
-1.- Create the project structure
-* Express up and running
-* Install sequelize
-* Create root path /
-
-* Has the git ignore file?
-* Has a readme ? 
-* Has the index file?
-* Has the start command on package json ?
-* npm start is working as expected?
-* Server is running ?
+2.- Configure sequelize
+* Install sequelize and sqlite
+* Create config file
+* Create db file
+* Call sync function to initialize the DB
+* Create video tracks model and sync with the database the model should be created correctly

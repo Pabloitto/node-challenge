@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Juan Pablo Itto <pabloitto@gmail.com>",
   "license": "ISC",
@@ -13,5 +14,8 @@
     "express": "^4.16.4",
     "sequelize": "^5.2.15",
     "sqlite": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
   }
 }

@@ -8,11 +8,13 @@ const config = require('./config')
 
 const loadModels = (sequelize) => {
   const root = path.join(__dirname, '..', 'models')
-  fs.readdirSync(root).reduce((models, file) => {
+  const models = fs.readdirSync(root).reduce((models, file) => {
     const modelDir = path.join(root, file)
     const model = sequelize.import(modelDir)
     models[model.name] = model
+    return models
   }, {})
+  return models
 }
 
 const setup = () => {
@@ -22,8 +24,11 @@ const setup = () => {
     config.password,
     config.params
   )
-  loadModels(sequelize)
-  return sequelize
+  const models = loadModels(sequelize)
+  return {
+    sequelize,
+    models
+  }
 }
 
 module.exports = {

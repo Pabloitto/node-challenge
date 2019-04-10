@@ -1,6 +1,7 @@
-2.- Configure sequelize
-* Install sequelize and sqlite
-* Create config file
-* Create db file
-* Call sync function to initialize the DB
-* Create video tracks model and sync with the database the model should be created correctly
+3.- Create the endpoints
+* Adding the middleware to express
+* Adding body parser
+* Create get video tracks endpoint
+* Create get video track by id endpoint
+* Create post video track endpoint
+* Create delete video track endpoint

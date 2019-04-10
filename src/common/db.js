@@ -4,7 +4,7 @@ const path = require('path')
 
 const Sequelize = require('sequelize')
 
-const config = require('./config')
+const config = require('./config/environments/test')
 
 const loadModels = (sequelize) => {
   const root = path.join(__dirname, '..', 'models')

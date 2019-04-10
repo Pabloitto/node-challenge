@@ -15,23 +15,30 @@ const routes = [
 
 const { sequelize, models } = setup()
 
-sequelize.sync().done(() => {
-  const attachModels = (req, res, next) => {
-    req.models = models
-    next()
-  }
+const attachModels = (req, res, next) => {
+  req.models = models
+  next()
+}
 
-  app.use(attachModels)
+app.use(attachModels)
 
-  app.use(bodyParser.json())
+app.use(bodyParser.json())
 
-  app.get('/', (req, res) => {
-    res.send('Welcome to the challenge')
-  })
+app.get('/', (req, res) => {
+  res.send('Welcome to the challenge')
+})
 
-  routes.forEach((route) => route({ app }))
+routes.forEach((route) => route({ app }))
 
+sequelize.sync()
+
+if (process.env.NODE_ENV !== 'test') {
   app.listen(8089, () => {
     console.log('Server is running on 8089!')
   })
-})
+}
+
+module.exports = {
+  app,
+  models
+}

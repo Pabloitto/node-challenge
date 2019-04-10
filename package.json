@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "test": "NODE_ENV=test mocha --require specs/helpers/setup.js specs/**/*.spec.js"
   },
   "author": "Juan Pablo Itto <pabloitto@gmail.com>",
   "license": "ISC",
@@ -16,6 +17,19 @@
     "sqlite": "^3.0.3"
   },
   "devDependencies": {
-    "nodemon": "^1.18.11"
+    "chai": "^4.2.0",
+    "mocha": "^6.1.2",
+    "nodemon": "^1.18.11",
+    "supertest": "^4.0.2"
+  },
+  "standard": {
+    "globals": [
+      "models",
+      "describe",
+      "it",
+      "request",
+      "expect",
+      "beforeEach"
+    ]
   }
 }
